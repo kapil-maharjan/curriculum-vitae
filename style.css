@@ -1,0 +1,22 @@
+img {
+    width: 100px;
+    height: 100px;
+    float: right;
+    position: relative;
+    bottom: 80px;
+    right: 150px;
+}
+
+table, td  {
+    border: 2px solid rgb(60, 60, 194);
+    border-radius: 5px;
+}
+
+table {
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+u {
+    color: rgba(12, 12, 234, 0.847);
+}
