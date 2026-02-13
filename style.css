@@ -1,10 +1,18 @@
-img {
-    width: 100px;
-    height: 100px;
-    float: right;
-    position: relative;
-    bottom: 80px;
-    right: 150px;
+.img-container {
+  display: flex;
+  align-items: right;
+  float: right; 
+  gap: 20px;
+}
+
+.image {
+  
+  width: 100px; 
+  height: auto;
+}
+
+address {
+  width: 70%; /* Adjust width as needed, ensuring total is around 100% */
 }
 
 table, td  {
@@ -19,4 +27,5 @@ table {
 
 u {
     color: rgba(12, 12, 234, 0.847);
+
 }
