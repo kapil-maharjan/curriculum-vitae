@@ -55,6 +55,23 @@ education.forEach((study, index) => {
 
 document.querySelector('.studyContainer').innerHTML = addStudy;
 
+// เลือก Header และ Container
+const eduHeader = document.getElementById('eduHeader');
+const studyContainer = document.querySelector('.studyContainer');
+
+// เมื่อคลิกที่หัวข้อ "EDUCATION BACKGROUND"
+eduHeader.addEventListener('click', () => {
+    // สลับคลาส .show
+    studyContainer.classList.toggle('show');
+    
+    // เปลี่ยนข้อความบอก User (Optional)
+    if (studyContainer.classList.contains('show')) {
+        eduHeader.innerHTML = '<u>EDUCATION BACKGROUND</u> (Click to hide)';
+    } else {
+        eduHeader.innerHTML = '<u>EDUCATION BACKGROUND</u> (Click to expand)';
+    }
+});
+
 //Work Experience
 
 const works = [{
