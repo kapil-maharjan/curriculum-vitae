@@ -102,9 +102,12 @@ const works = [{
 
 let addWork = '';
 
-works.forEach((work) => {
+works.forEach((work, index) => {
+
+    const hideClass = (index > 0) ? 'hidden-work' : '';
+
   addWork += `
-  <div class="workTime">
+  <div class="workTime ${hideClass}">
     Year: ${work.year} <br>
     <h4>Company: ${work.company}</h4>
     Location: ${work.location} <br>
@@ -114,8 +117,25 @@ works.forEach((work) => {
   </div>`
 });
 
-document.querySelector('.workContainer').innerHTML = addWork;
+document.querySelector('#workContainer').innerHTML = addWork;
 
+// --- Logic สำหรับการคลิก Show More ---
+const showMoreBtn = document.getElementById('showMoreWork');
+
+showMoreBtn.addEventListener('click', function() {
+    
+    const hiddenWorks = document.querySelectorAll('.hidden-work');
+
+    hiddenWorks.forEach(item => {
+        if (item.style.display === 'block') {
+            item.style.display = 'none';
+            showMoreBtn.textContent = '▼ Show More Experiences';
+        } else {
+            item.style.display = 'block';
+            showMoreBtn.textContent = '▲ Show Less';
+        }
+    });
+});
 
 //References
 const referPeople = [{
