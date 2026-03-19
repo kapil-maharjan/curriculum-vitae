@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kapil's Resume</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <h1>Curriculum Vitae</h1>
@@ -14,11 +14,9 @@
         <label>Email: </label><email><a href="mailto:kop1989@icloud.com">kop1989@icloud.com</a></email>
         <strong>Phone: </strong> <a href="tel:0651104811">+66 6-5110-4811</a>
     </address>
-
 <div class="img-container">
-<img src="My Profile Photo.PNG" alt="profile-pic" class="image">
+<img src="./My Profile Photo.PNG" alt="profile-pic" class="image">
 </div>
-
     <br>
 <h3><u>PERSONAL INFORMATION</u></h3>
 
@@ -32,7 +30,10 @@
 <ol id="js-jobList"></ol>
 
 <h3 id="eduHeader"><u>EDUCATION BACKGROUND</u></h3>
-<div class="studyContainer hidden"></div>  
+<div id="studyContainer"></div> <!-- เปลี่ยนจาก class เป็น id เพื่อให้เหมือนกัน -->
+<div id="showMoreEdu">
+    ▼ Show More Education
+</div>
 
 <h3><u>WORK EXPERIENCE</u></h3>
 <div id="workContainer"></div>
@@ -111,7 +112,6 @@
 <h3><u>References</u></h3>
 <div class="referContainer"></div> 
 
-<script defer src="update.js"></script>
+<script defer src="./update.js"></script>
 </body>
 </html>
-
