@@ -5,7 +5,7 @@ const wantedJobs = [
     'International Trade Agent',
     'English Teacher',
     'Frond-End Developer',
-    'Graphcs Designer',
+    'Graphics Designer',
     'Customer Service Representative',
 ];
 
