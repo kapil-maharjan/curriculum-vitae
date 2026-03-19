@@ -39,13 +39,16 @@ const education = [{
 
 let addStudy = '';
 
-education.forEach((study) => {
+education.forEach((study, index) => {
+   const anchorLink = (index === 0) 
+        ? '<span class="special-link"><a href="https://postimg.cc/gallery/syzj2k7" target="_blank">Transcript</a></span>' 
+        : '';
     addStudy += `
-    <div class="studyTime">
+    <div class="studyTime"> 
         Year: ${study.year}
         <h4>Institution: ${study.institution}</h4>
         <p>Level: ${study.level}</p>
-        Major Subjects: ${study.subjects}<br><hr>
+        Major Subjects: ${study.subjects} ${anchorLink}<br><hr>
     </div>
     `;
 });
