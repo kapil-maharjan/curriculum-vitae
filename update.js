@@ -40,11 +40,13 @@ const education = [{
 let addStudy = '';
 
 education.forEach((study, index) => {
-   const anchorLink = (index === 0) 
+   // ใส่คลาส hidden-edu ให้อันที่ 2 เป็นต้นไป
+   const hideClass = (index > 0) ? 'hidden-edu' : ''; 
+   const anchorLink = (index === 0)
         ? '<span class="special-link"><a href="https://postimg.cc/gallery/syzj2k7" target="_blank">Transcript</a></span>' 
         : '';
     addStudy += `
-    <div class="studyTime"> 
+    <div class="studyTime ${hideClass}"> 
         Year: ${study.year}
         <h4>Institution: ${study.institution}</h4>
         <p>Level: ${study.level}</p>
@@ -53,23 +55,24 @@ education.forEach((study, index) => {
     `;
 });
 
-document.querySelector('.studyContainer').innerHTML = addStudy;
+// ตรวจสอบให้มั่นใจว่าใช้ #studyContainer
+document.querySelector('#studyContainer').innerHTML = addStudy;
 
-// เลือก Header และ Container
-const eduHeader = document.getElementById('eduHeader');
-const studyContainer = document.querySelector('.studyContainer');
+const showMoreEduBtn = document.getElementById('showMoreEdu');
 
-// เมื่อคลิกที่หัวข้อ "EDUCATION BACKGROUND"
-eduHeader.addEventListener('click', () => {
-    // สลับคลาส .show
-    studyContainer.classList.toggle('show');
-    
-    // เปลี่ยนข้อความบอก User (Optional)
-    if (studyContainer.classList.contains('show')) {
-        eduHeader.innerHTML = '<u>EDUCATION BACKGROUND</u> (Click to hide)';
-    } else {
-        eduHeader.innerHTML = '<u>EDUCATION BACKGROUND</u> (Click to expand)';
-    }
+showMoreEduBtn.addEventListener('click', function() {
+    const hiddenEdus = document.querySelectorAll('.hidden-edu');
+
+    hiddenEdus.forEach(item => {
+        // เช็คสถานะการแสดงผล
+        if (item.style.display === 'block') {
+            item.style.display = 'none';
+            showMoreEduBtn.textContent = '▼ Show More Education';
+        } else {
+            item.style.display = 'block';
+            showMoreEduBtn.textContent = '▲ Show Less';
+        }
+    });
 });
 
 //Work Experience
