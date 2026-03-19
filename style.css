@@ -15,6 +15,33 @@ address {
   width: 70%; /* Adjust width as needed, ensuring total is around 100% */
 }
 
+#eduHeader {
+  cursor: pointer;
+}
+
+/* คลาสสำหรับซ่อนแบบนุ่มนวล */
+.studyContainer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-out; /* ปรับความเร็วตรงนี้ */
+    padding-left: 10px;
+    border-left: 0px solid blue;
+}
+
+/* คลาสสำหรับแสดงผล */
+.studyContainer.show {
+    max-height: 1000px; /* ใส่ค่าที่ครอบคลุมเนื้อหาทั้งหมด */
+    opacity: 1;
+    border-left: 4px solid blue; /* เพิ่มเส้นข้างๆ ให้ดูเป็นระเบียบตอนเปิด */
+    margin-top: 10px;
+}
+
+#eduHeader:hover {
+    color: blue;
+    transition: 0.3s;
+}
+
 table, td  {
     border: 2px solid rgb(60, 60, 194);
     border-radius: 5px;
