@@ -19,22 +19,11 @@ address {
   cursor: pointer;
 }
 
-/* คลาสสำหรับซ่อนแบบนุ่มนวล */
-.studyContainer {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.5s ease-out; /* ปรับความเร็วตรงนี้ */
-    padding-left: 10px;
-    border-left: 0px solid blue;
-}
-
-/* คลาสสำหรับแสดงผล */
-.studyContainer.show {
-    max-height: 1000px; /* ใส่ค่าที่ครอบคลุมเนื้อหาทั้งหมด */
-    opacity: 1;
-    border-left: 4px solid blue; /* เพิ่มเส้นข้างๆ ให้ดูเป็นระเบียบตอนเปิด */
-    margin-top: 10px;
+#showMoreEdu {
+   cursor: pointer; 
+   color: blue; 
+   font-weight: bold; 
+   margin-top: 10px;
 }
 
 #eduHeader:hover {
@@ -49,12 +38,12 @@ address {
    margin-top: 10px;
 }
 
-.hidden-work {
+.hidden-work, .hidden-edu {
     display: none; /* ซ่อนงานเก่าๆ ไว้ก่อน */
 }
 
 /* ตกแต่งปุ่มนิดหน่อย */
-#showMoreWork:hover {
+#showMoreWork:hover, #showMoreEdu:hover {
     text-decoration: underline;
     color: darkblue;
 }
@@ -72,5 +61,4 @@ table {
 
 u {
     color: rgba(12, 12, 234, 0.847);
-
 }
