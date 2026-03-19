@@ -146,12 +146,12 @@ const referPeople = [{
     position: 'Lecturer',
     institution: 'Mahachulalongkorn Buddhist University',
     address: 'Wangnoi Ayutthaya',
-    number: '+66 089146584',
-    email: '........'
+    number: '+66 0891465842',
+    email: 'Vee.veerakarn@gmail.com'
 },{
     name: 'Mr Kasem Koompondsyn',
-    position: 'Agent',
-    institution: 'AIA(American International Assurance)',
+    position: 'MDRT Advisor & Agency Manager',
+    institution: 'AIA (Thailand)',
     address: 'Pathumwan, BKK 10332',
     number: '+66 0864487338',
     email: '2016aia@gmail.com' 
