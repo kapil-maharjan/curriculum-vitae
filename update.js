@@ -183,3 +183,23 @@ referPeople.forEach((person) => {
 
 
 document.querySelector('.referContainer').innerHTML = addPerson;
+
+const projectList = document.getElementById('projectList');
+
+const projects = [
+    { name: 'To Do List', url: 'https://my-to-do-list-olive.vercel.app/' },
+    { name: 'Expense Tracker', url: 'https://expense-tracker-five-lime-64.vercel.app/' },
+    { name: 'Chatapp', url: 'https://my-chat-love.onrender.com/' },
+    { name: 'Trekking Website', url: 'https://desar-maharjan-website.vercel.app/' },
+    { name: 'Weather App plus information about marriage visa in Thailand', url: 'https://visa-marriage.vercel.app/' }
+];
+
+projects.forEach(project => {
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = project.url;
+    link.textContent = project.name;
+    link.target = '_blank';
+    listItem.appendChild(link);
+    projectList.appendChild(listItem);
+});
