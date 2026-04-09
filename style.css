@@ -15,10 +15,6 @@ address {
   width: 70%; /* Adjust width as needed, ensuring total is around 100% */
 }
 
-#eduHeader {
-  cursor: pointer;
-}
-
 #showMoreEdu {
    cursor: pointer; 
    color: blue; 
