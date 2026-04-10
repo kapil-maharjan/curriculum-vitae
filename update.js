@@ -29,18 +29,21 @@ if (job.href) {
 const education = [{
     year: '2009 - 2013',
     institution: 'Mahachulalongkorn Buddhist University',
+    url: 'https://www.mcu.ac.th/',
     level: 'Bachelor\'s degree in Humanities',
     subjects: 'English(Linguistics and Buddhist Theology)'
 },
 {
     year: '2005 - 2009',
     institution: 'Wat Sra Riang Buddhist School',
+    url: 'https://www.facebook.com/Srasiang/',
     level: 'Primary Plus High School(M.2 - M.6)',
     subjects: 'General subjects & Buddhist subjects'
 },
 {
     year: '2000 - 2004',
     institution: 'Ujjwal Shishu Niketan Boarding High School',
+    url: 'https://www.facebook.com/usnhetauda/',
     level: 'UKG, Secondary Level',
     subjects: 'General Subjects'
 }];
@@ -48,22 +51,22 @@ const education = [{
 let addStudy = '';
 
 education.forEach((study, index) => {
-   // ใส่คลาส hidden-edu ให้อันที่ 2 เป็นต้นไป
+   
    const hideClass = (index > 0) ? 'hidden-edu' : ''; 
+   const instWithLink = `<a href="${study.url}" target="_blank">${study.institution}</a>`;
    const anchorLink = (index === 0)
         ? '<span class="special-link"><a href="https://postimg.cc/gallery/syzj2k7" target="_blank">Transcript</a></span>' 
         : '';
     addStudy += `
     <div class="studyTime ${hideClass}"> 
         Year: ${study.year}
-        <h4>Institution: ${study.institution}</h4>
+        <h4>Institution: ${instWithLink}</h4>
         <p>Level: ${study.level}</p>
         Major Subjects: ${study.subjects} ${anchorLink}<br><hr>
     </div>
     `;
 });
 
-// ตรวจสอบให้มั่นใจว่าใช้ #studyContainer
 document.querySelector('#studyContainer').innerHTML = addStudy;
 
 const showMoreEduBtn = document.getElementById('showMoreEdu');
