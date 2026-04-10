@@ -2,11 +2,11 @@ document.getElementsByClassName('changeAddress')[0].textContent = 'Rama II Road,
 
 
 const wantedJobs = [
-    'Export Officer',
-    'English Teacher',
-    'Front-End Developer',
-    'Graphics Designer',
-    'Customer Service Representative',
+    { title: 'Export Officer', href: '#export-officer-section' },
+    { title: 'English Teacher', href: null },
+    { title: 'Front-End Developer', href: '#projectList' },
+    { title: 'Graphics Designer', href: '#training-section' },
+    { title: 'Customer Service Representative', href: '' },
 ];
 
 let jobList = document.getElementById('js-jobList');
@@ -14,7 +14,15 @@ let jobList = document.getElementById('js-jobList');
 wantedJobs.forEach(job => {
 const newList = document.createElement('li');
 
-  newList.textContent = job;
+if (job.href) {
+    const link = document.createElement('a');
+    link.href = job.href;
+    link.textContent = job.title;
+    newList.appendChild(link);
+} else {
+    newList.textContent = job.title;
+}
+
   jobList.append(newList);
 });
 
@@ -107,8 +115,10 @@ let addWork = '';
 
 works.forEach((work) => {
 
+    const sectionId = work.position === 'Export Officer' ? 'id="export-officer-section"' : '';
+
   addWork += `
-  <div class="workTime">
+  <div class="workTime" ${sectionId}>
     Year: ${work.year} <br>
     <h4>Company: ${work.company}</h4>
     Location: ${work.location} <br>
@@ -119,6 +129,9 @@ works.forEach((work) => {
 });
 
 document.querySelector('#workContainer').innerHTML = addWork;
+
+// --- Logic สำหรับการคลิก Show More ---
+const showMoreBtn = document.getElementById('showMoreWork');
 
 //References
 const referPeople = [{
