@@ -4,7 +4,7 @@ document.getElementsByClassName('changeAddress')[0].textContent = 'Rama II Road,
 const wantedJobs = [
     'Export Officer',
     'English Teacher',
-    'Frond-End Developer',
+    'Front-End Developer',
     'Graphics Designer',
     'Customer Service Representative',
 ];
