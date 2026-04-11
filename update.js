@@ -1,6 +1,5 @@
 document.getElementsByClassName('changeAddress')[0].textContent = 'Rama II Road, Subdistrict: Samae, District: Bang Khun Thian, Bangkok 10150';
 
-
 const wantedJobs = [
     { title: 'Export Officer', href: '#export-officer-section' },
     { title: 'Front-End Developer', href: '#projectList' },
@@ -9,21 +8,64 @@ const wantedJobs = [
 ];
 
 let jobList = document.getElementById('js-jobList');
+jobList.innerHTML = '';
+jobList.style.listStyle = 'none';
+const animatedJob = document.createElement('li');
+animatedJob.id = 'animated-job-item';
+const jobLink = document.createElement('a');
+animatedJob.appendChild(jobLink);
+jobList.appendChild(animatedJob);
 
-wantedJobs.forEach(job => {
-const newList = document.createElement('li');
+let currentIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let jobTimer;
 
-if (job.href) {
-    const link = document.createElement('a');
-    link.href = job.href;
-    link.textContent = job.title;
-    newList.appendChild(link);
-} else {
-    newList.textContent = job.title;
+function typeEffect() {
+    const currentJob = wantedJobs[currentIndex].title;
+    const jobLink = document.getElementById('animated-job-item').querySelector('a');
+    jobLink.href = wantedJobs[currentIndex].href;
+
+    let displayText = isDeleting
+        ? currentJob.substring(0, charIndex - 1)
+        : currentJob.substring(0, charIndex + 1);   
+
+        jobLink.innerHTML = displayText || '&nbsp;';
+
+    if (isDeleting) {
+        charIndex--;
+    } else {
+        charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 150 : 100;
+
+    if (!isDeleting && charIndex === currentJob.length) {
+        typeSpeed = 2000; 
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        currentIndex = (currentIndex + 1) % wantedJobs.length;
+        typeSpeed = 500;
+    }
+
+    typeTimer = setTimeout(typeEffect, typeSpeed);
 }
 
-  jobList.append(newList);
+animatedJob.addEventListener('mouseenter', () => {
+    clearTimeout(typeTimer);
+    const jobLink = animatedJob.querySelector('a');
+    const fullTitle = wantedJobs[currentIndex].title;
+    jobLink.textContent = fullTitle;
+    charIndex = fullTitle.length;
+    isDeleting = true;
 });
+
+animatedJob.addEventListener('mouseleave', () => {
+    typeTimer = setTimeout(typeEffect, 500);
+});
+
+typeEffect();
 
 const education = [{
     year: '2009 - 2013',
