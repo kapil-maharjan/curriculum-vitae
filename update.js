@@ -3,10 +3,9 @@ document.getElementsByClassName('changeAddress')[0].textContent = 'Rama II Road,
 
 const wantedJobs = [
     { title: 'Export Officer', href: '#export-officer-section' },
-    { title: 'English Teacher', href: null },
     { title: 'Front-End Developer', href: '#projectList' },
     { title: 'Graphics Designer', href: '#training-section' },
-    { title: 'Customer Service Representative', href: '' },
+    { title: 'Customer Service Representative', href: '#customer-service-section' },
 ];
 
 let jobList = document.getElementById('js-jobList');
@@ -117,10 +116,14 @@ const works = [{
 let addWork = '';
 
 works.forEach((work) => {
-
-    const sectionId = work.position === 'Export Officer' ? 'id="export-officer-section"' : '';
-
-  addWork += `
+  let sectionId = '';
+    if (work.position === 'Export Officer') {
+        sectionId = 'id="export-officer-section"';
+    } else if (work.position === 'Customer Service Representative') {
+        sectionId = 'id="customer-service-section"';
+    }
+    
+addWork += `
   <div class="workTime" ${sectionId}>
     Year: ${work.year} <br>
     <h4>Company: ${work.company}</h4>
@@ -133,7 +136,6 @@ works.forEach((work) => {
 
 document.querySelector('#workContainer').innerHTML = addWork;
 
-// --- Logic สำหรับการคลิก Show More ---
 const showMoreBtn = document.getElementById('showMoreWork');
 
 //References
