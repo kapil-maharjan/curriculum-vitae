@@ -231,7 +231,8 @@ const projects = [
     { name: 'Expense Tracker', url: 'https://expense-tracker-five-lime-64.vercel.app/' },
     { name: 'Chatapp', url: 'https://my-chat-love.onrender.com/' },
     { name: 'Trekking Website', url: 'https://desar-maharjan-website.vercel.app/' },
-    { name: 'Weather App plus information about marriage visa in Thailand', url: 'https://visa-marriage.vercel.app/' }
+    { name: 'Weather App plus information about marriage visa in Thailand', url: 'https://visa-marriage.vercel.app/' },
+    { name: 'My GitHub', url: 'https://github.com/kapil-maharjan/kapil_maharjan?tab=readme-ov-file'}
 ];
 
 projects.forEach(project => {
